@@ -1,0 +1,1 @@
+'CREATE TABLE words (content TEXT, word VARCHAR(32), category VARCHAR(32), theme VARCHAR(32), complexity VARCHAR(16), letters INTEGER)'
