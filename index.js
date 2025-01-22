@@ -47,7 +47,12 @@ const sse = (_, res) => {
 
 app.get('/words', async (_, res) => {
     client.query("SELECT * FROM Words WHERE word NOT IN('') ", (err, data) => {
-        res.send(data.rows)
+        if (data) {
+            res.send(data.rows)
+        } else {
+            res.send([])
+        }
+        
     })
 })
 
@@ -64,7 +69,7 @@ app.post('/create-word', async (req, res) => {
         new Error(err)
     })
 
-    res.sendStatus(200)
+    res.sendStatus(2e2)
 })
 
 app.get('/get-word', async (req, res) => {
